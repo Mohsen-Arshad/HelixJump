@@ -7,8 +7,3 @@ PhysicMaterial:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: BouncingSurface
-  dynamicFriction: 0
-  staticFriction: 0
-  bounciness: 0.965
-  frictionCombine: 3
-  bounceCombine: 3

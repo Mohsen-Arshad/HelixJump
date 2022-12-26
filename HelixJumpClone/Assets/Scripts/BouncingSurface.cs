@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JumpingSurface : MonoBehaviour
+public class BouncingSurface : MonoBehaviour
 {
     [SerializeField] private float bouncingForce;
 

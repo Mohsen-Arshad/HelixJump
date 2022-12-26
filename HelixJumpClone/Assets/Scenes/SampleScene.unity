@@ -282,6 +282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpingForce: 200
+  distanceBetweenRings: 0
 --- !u!65 &273508172
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -504,6 +505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpingForce: 200
+  distanceBetweenRings: 0
 --- !u!65 &681499625
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -823,6 +825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpingForce: 200
+  distanceBetweenRings: 0
 --- !u!65 &854457021
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1085,7 +1088,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 750da1625a5c85e40a4e9a23e9aca849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpingForce: 200
+  jumpingForce: 20
+  distanceBetweenRings: 40
 --- !u!65 &2076602789
 BoxCollider:
   m_ObjectHideFlags: 0

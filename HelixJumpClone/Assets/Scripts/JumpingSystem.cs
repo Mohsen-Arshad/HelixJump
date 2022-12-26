@@ -11,6 +11,7 @@ public class JumpingSystem : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ball"))
         {
+            collision.rigidbody.velocity = Vector3.zero;
             collision.rigidbody.AddForce(new Vector3(0, jumpingForce*2, jumpingForce));
         }
     }

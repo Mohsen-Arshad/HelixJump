@@ -1,18 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class JumpingSystem : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private float jumpingForce;
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        if (collision.gameObject.CompareTag("Ball"))
+        {
+            collision.rigidbody.AddForce(new Vector3(0, jumpingForce*2, jumpingForce));
+        }
     }
 }

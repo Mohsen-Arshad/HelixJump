@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class JumpingSurface : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private float bouncingForce;
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        if (collision.gameObject.CompareTag("Ball"))
+        {
+            collision.rigidbody.AddRelativeForce(new Vector3(0, bouncingForce, 0));
+        }
     }
 }

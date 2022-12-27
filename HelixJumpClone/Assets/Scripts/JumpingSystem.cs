@@ -20,7 +20,7 @@ public class JumpingSystem : MonoBehaviour
 
     private float CalculateAngle()
     {
-        float jumpingAngle = Mathf.Asin(-(Physics.gravity.y * distanceBetweenRings) / (jumpingForce * jumpingForce)) / 2;
+        float jumpingAngle = Mathf.Asin(-(Physics.gravity.y * distanceBetweenRings) / (jumpingForce * jumpingForce) * 1000) / 2;
         jumpingAngle *= Mathf.Rad2Deg;
         Debug.Log(jumpingAngle);
         return jumpingAngle;

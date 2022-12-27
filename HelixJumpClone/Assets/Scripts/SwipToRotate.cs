@@ -24,7 +24,7 @@ public class SwipToRotate : MonoBehaviour
         else if (Input.GetMouseButton(0))
         {
             float currentDistanceBetweenMousePosition = (Input.mousePosition - pressPoint).x;
-            transform.rotation = startRotation * Quaternion.Euler(Vector3.left * (currentDistanceBetweenMousePosition / sceneWidth) * 360);
+            transform.rotation = startRotation * Quaternion.Euler(Vector3.forward * (currentDistanceBetweenMousePosition / sceneWidth) * 360);
         }
     }
 

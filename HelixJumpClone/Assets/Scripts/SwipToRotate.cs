@@ -28,19 +28,17 @@ public class SwipToRotate : MonoBehaviour
         }
     }
 
-
-    //Vector3 mousePreviousPosition = Vector3.zero;
-    //Vector3 mousePositionDelta = Vector3.zero;
-
-    //private void Update()
+    //void TouchScreenMode()
     //{
-    //    if (Input.GetMouseButton(0))
-    //    {
-    //        Debug.Log("clicked");
-    //        mousePositionDelta = Input.mousePosition - mousePreviousPosition;
-    //        this.transform.Rotate(transform.up, Vector3.Dot(mousePositionDelta, Camera.main.transform.right), Space.World);
-    //    }
 
-    //    mousePreviousPosition = Input.mousePosition;
+    //    if (Input.touchCount == 1)
+    //    {
+    //        Touch screenTouch = Input.GetTouch(0);
+
+    //        if (screenTouch.phase == TouchPhase.Moved)
+    //        {
+    //            transform.Rotate(0f, screenTouch.deltaPosition.x, 0f);
+    //        }
+    //    }
     //}
 }

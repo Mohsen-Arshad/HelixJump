@@ -7,6 +7,6 @@ public class BallPaintYellow : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         collision.gameObject.tag = "YellowBall";
-        collision.gameObject.GetComponent<Renderer>().material = collision.gameObject.GetComponent<Renderer>().materials[2];
+        collision.gameObject.GetComponent<Renderer>().material.color = new Color(255, 242, 0);
     }
 }

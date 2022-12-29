@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8323819568521645800}
   - component: {fileID: 4565182998506816335}
+  - component: {fileID: 4346584495926607322}
   m_Layer: 0
   m_Name: PaintRingBlue
   m_TagString: Untagged
@@ -48,6 +49,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab1ac8d6de0e8e9499ecc87288d8b4ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4346584495926607322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7456941116511801493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69447c2568fcbed47bb200f78b95e10d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &264152883181415584

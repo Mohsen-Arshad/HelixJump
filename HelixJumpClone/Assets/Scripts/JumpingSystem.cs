@@ -42,7 +42,7 @@ public class JumpingSystem : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ball"))
+        if (collision.gameObject.CompareTag("BlueBall") || collision.gameObject.CompareTag("YellowBall") || collision.gameObject.CompareTag("RedBall"))
         {
             collision.rigidbody.velocity = CalculateVelocity();
         }

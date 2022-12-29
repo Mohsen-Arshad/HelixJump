@@ -9,7 +9,7 @@ public class CameraHandler : MonoBehaviour
     {
         if (player != null)
         {
-            transform.position = player.transform.position + new Vector3(0, 2, -4.5f);
+            transform.position = player.transform.position + new Vector3(0, 0, -4.5f);
         }
     }
 }

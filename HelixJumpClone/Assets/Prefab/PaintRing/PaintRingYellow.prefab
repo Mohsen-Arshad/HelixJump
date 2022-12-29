@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5762575322807261351}
   - component: {fileID: 226916993915196672}
+  - component: {fileID: -7140223334330623497}
   m_Layer: 0
   m_Name: PaintRingYellow
   m_TagString: Untagged
@@ -48,6 +49,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab1ac8d6de0e8e9499ecc87288d8b4ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-7140223334330623497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6557384121063474906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e06101c774c1bcc41a2448f5ec738a7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &2119645380336852623

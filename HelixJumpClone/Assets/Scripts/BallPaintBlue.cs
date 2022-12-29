@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class BallPaintBlue : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnCollisionEnter(Collision collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        collision.gameObject.tag = "BlueBall";
+        collision.gameObject.GetComponent<Renderer>().material.color = gameObject.GetComponent<Renderer>().material.color;
     }
 }

@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Ball
   - Cube
+  - BlueBall
+  - RedBall
+  - YellowBall
   layers:
   - Default
   - TransparentFX

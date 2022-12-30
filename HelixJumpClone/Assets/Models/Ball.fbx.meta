@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2eb94f09d5e605e4db881cf4f0e184fd
+guid: 8d9a832b8ce13ad4f88c50ee4c1fe53c
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -33,9 +33,9 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: BallControl|BallControlAction
-      takeName: BallControl|BallControlAction
-      internalID: 8310269692355726527
+      name: Ball Control|Ball ControlAction
+      takeName: Ball Control|Ball ControlAction
+      internalID: -902219398791964333
       firstFrame: 0
       lastFrame: 30
       wrapMode: 0
@@ -44,8 +44,8 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 1
+      loopTime: 0
+      loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0

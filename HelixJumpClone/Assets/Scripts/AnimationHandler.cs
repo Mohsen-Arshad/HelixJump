@@ -6,7 +6,7 @@ public class AnimationHandler : MonoBehaviour
 {
     Animator animator;
     public static bool isJumping;
-    float waitForSec = 0.08f;
+    float waitForSec = 0.31f;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,9 +24,9 @@ public class AnimationHandler : MonoBehaviour
         waitForSec -= Time.deltaTime;
         if (waitForSec <= 0f)
         {
-            isJumping = false;
+            waitForSec = 0.31f;
             animator.SetBool("isJumping", false);
-            waitForSec = 0.08f;
+            isJumping = false;
         }
     }
 }

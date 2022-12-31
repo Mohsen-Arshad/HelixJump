@@ -16,10 +16,13 @@ public class JumpingSystem : MonoBehaviour
     private void Update()
     {
         RaycastHit hit;
-        if (Physics.Raycast(gameObject.transform.position,Vector3.forward,out hit))
+        Vector3 objectPivotDifference = gameObject.transform.position + new Vector3(-0.5f, -2.46f, 0);
+
+        //Debug.DrawLine(gameObject.transform.position, target.position, Color.red);
+        if (Physics.Raycast(objectPivotDifference, Vector3.left, out hit, 100))
         {
             target = hit.collider.transform;
-            Debug.DrawLine(transform.position, target.position, Color.red);
+            Debug.DrawLine(objectPivotDifference, target.position, Color.red);
         }
     }
 
@@ -43,7 +46,7 @@ public class JumpingSystem : MonoBehaviour
 
         Vector3 velocity = new Vector3(0, initialVelocity * Mathf.Sin(angle), initialVelocity * Mathf.Cos(angle));
 
-        float angleBetweenObjects = Vector3.Angle(Vector3.forward, planarTarget - planarPostion) * (p.x > transform.position.x ? 1 : -1);
+        float angleBetweenObjects = Vector3.Angle(Vector3.up, planarTarget - planarPostion) * (p.x > transform.position.x ? 1 : -1);
         Vector3 finalVelocity = Quaternion.AngleAxis(angleBetweenObjects, Vector3.up) * velocity;
         return finalVelocity;
     }

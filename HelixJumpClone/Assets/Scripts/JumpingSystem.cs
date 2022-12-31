@@ -11,18 +11,17 @@ public class JumpingSystem : MonoBehaviour
     Transform target;
 
     [SerializeField]
-    float initialAngle;
+    float initialAngle = 40;
 
     private void Update()
     {
         RaycastHit hit;
-        Vector3 objectPivotDifference = gameObject.transform.position + new Vector3(-0.5f, -2.46f, 0);
 
         //Debug.DrawLine(gameObject.transform.position, target.position, Color.red);
-        if (Physics.Raycast(objectPivotDifference, Vector3.left, out hit, 100))
+        if (Physics.Raycast(gameObject.transform.position, Vector3.right, out hit, 100))
         {
             target = hit.collider.transform;
-            Debug.DrawLine(objectPivotDifference, target.position, Color.red);
+            Debug.DrawLine(gameObject.transform.position, target.position, Color.red);
         }
     }
 
@@ -57,6 +56,8 @@ public class JumpingSystem : MonoBehaviour
         {
             if (target != null)
             {
+                collision.rigidbody.velocity = Vector3.zero;
+                collision.rigidbody.angularVelocity = Vector3.zero;
                 collision.rigidbody.velocity = CalculateVelocity();
             }
         }

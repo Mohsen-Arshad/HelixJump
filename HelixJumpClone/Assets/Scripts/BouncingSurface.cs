@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BouncingSurface : MonoBehaviour
 {
-    [SerializeField] private float bouncingForce;
+    [SerializeField] private float bouncingForce = 250;
 
     private void OnCollisionEnter(Collision collision)
     {

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5022232209921893377}
   m_Layer: 0
-  m_Name: RedPainCircle
+  m_Name: YellowPaintCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -105,7 +105,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 8f814b1989cc83541833bbc49820f571, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: af48da6b185ad5f4fa1def1690ecf3d3, type: 2}
+      objectReference: {fileID: 2100000, guid: b619d2f05e27c004ea1e773ff6b574bf, type: 2}
     - target: {fileID: 919132149155446097, guid: 8f814b1989cc83541833bbc49820f571, type: 3}
       propertyPath: m_Name
       value: SliceCircle 9OC
@@ -183,7 +183,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 8f814b1989cc83541833bbc49820f571, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: af48da6b185ad5f4fa1def1690ecf3d3, type: 2}
+      objectReference: {fileID: 2100000, guid: b619d2f05e27c004ea1e773ff6b574bf, type: 2}
     - target: {fileID: 919132149155446097, guid: 8f814b1989cc83541833bbc49820f571, type: 3}
       propertyPath: m_Name
       value: SliceCircle 1OC
@@ -261,7 +261,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 8f814b1989cc83541833bbc49820f571, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: af48da6b185ad5f4fa1def1690ecf3d3, type: 2}
+      objectReference: {fileID: 2100000, guid: b619d2f05e27c004ea1e773ff6b574bf, type: 2}
     - target: {fileID: 919132149155446097, guid: 8f814b1989cc83541833bbc49820f571, type: 3}
       propertyPath: m_Name
       value: SliceCircle 7OC
@@ -339,7 +339,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 8f814b1989cc83541833bbc49820f571, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: af48da6b185ad5f4fa1def1690ecf3d3, type: 2}
+      objectReference: {fileID: 2100000, guid: b619d2f05e27c004ea1e773ff6b574bf, type: 2}
     - target: {fileID: 919132149155446097, guid: 8f814b1989cc83541833bbc49820f571, type: 3}
       propertyPath: m_Name
       value: SliceCircle 3OC
@@ -417,7 +417,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 8f814b1989cc83541833bbc49820f571, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: af48da6b185ad5f4fa1def1690ecf3d3, type: 2}
+      objectReference: {fileID: 2100000, guid: b619d2f05e27c004ea1e773ff6b574bf, type: 2}
     - target: {fileID: 919132149155446097, guid: 8f814b1989cc83541833bbc49820f571, type: 3}
       propertyPath: m_Name
       value: SliceCircle 12OC
@@ -495,7 +495,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 8f814b1989cc83541833bbc49820f571, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: af48da6b185ad5f4fa1def1690ecf3d3, type: 2}
+      objectReference: {fileID: 2100000, guid: b619d2f05e27c004ea1e773ff6b574bf, type: 2}
     - target: {fileID: 919132149155446097, guid: 8f814b1989cc83541833bbc49820f571, type: 3}
       propertyPath: m_Name
       value: SliceCircle 6OC
@@ -573,7 +573,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 8f814b1989cc83541833bbc49820f571, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: af48da6b185ad5f4fa1def1690ecf3d3, type: 2}
+      objectReference: {fileID: 2100000, guid: b619d2f05e27c004ea1e773ff6b574bf, type: 2}
     - target: {fileID: 919132149155446097, guid: 8f814b1989cc83541833bbc49820f571, type: 3}
       propertyPath: m_Name
       value: SliceCircle 10OC
@@ -651,7 +651,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 8f814b1989cc83541833bbc49820f571, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: af48da6b185ad5f4fa1def1690ecf3d3, type: 2}
+      objectReference: {fileID: 2100000, guid: b619d2f05e27c004ea1e773ff6b574bf, type: 2}
     - target: {fileID: 919132149155446097, guid: 8f814b1989cc83541833bbc49820f571, type: 3}
       propertyPath: m_Name
       value: SliceCircle 5OC

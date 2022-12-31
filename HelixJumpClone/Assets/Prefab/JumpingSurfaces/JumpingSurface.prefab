@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7951374392174540038}
   - component: {fileID: 6482702367907936931}
   - component: {fileID: 9084842629936221801}
+  - component: {fileID: -2075553651710253572}
   m_Layer: 0
   m_Name: JumpingSurface
   m_TagString: Untagged
@@ -84,6 +85,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-2075553651710253572
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7283204936375152572}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8917733774265700113, guid: feb9fffc977eed649ba160b446607644, type: 3}
 --- !u!1001 &4016937747853298365
 PrefabInstance:
   m_ObjectHideFlags: 0

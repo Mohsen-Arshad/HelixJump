@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3813704798767346239}
   - component: {fileID: 234991861112372634}
   - component: {fileID: 2640847244267686224}
+  - component: {fileID: -2796395333978637672}
   m_Layer: 0
   m_Name: RedJumpingSurface 1
   m_TagString: Untagged
@@ -84,6 +85,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-2796395333978637672
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4586582946483972229}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8917733774265700113, guid: feb9fffc977eed649ba160b446607644, type: 3}
 --- !u!1001 &7857359921487990148
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -109,7 +124,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5f2e151b830876e4f80c0a82d7b0dd9d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.054
+      value: -0.035
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5f2e151b830876e4f80c0a82d7b0dd9d, type: 3}
       propertyPath: m_LocalPosition.y

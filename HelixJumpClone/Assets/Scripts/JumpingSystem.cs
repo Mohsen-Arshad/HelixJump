@@ -59,6 +59,7 @@ public class JumpingSystem : MonoBehaviour
                 collision.rigidbody.velocity = Vector3.zero;
                 collision.rigidbody.angularVelocity = Vector3.zero;
                 collision.rigidbody.velocity = CalculateVelocity();
+                AnimationHandler.isJumping = true;
             }
         }
     }

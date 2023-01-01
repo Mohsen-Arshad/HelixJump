@@ -9,6 +9,9 @@ TagManager:
   - BlueBall
   - RedBall
   - YellowBall
+  - YellowCircle
+  - BlueCircle
+  - RedCircle
   layers:
   - Default
   - TransparentFX

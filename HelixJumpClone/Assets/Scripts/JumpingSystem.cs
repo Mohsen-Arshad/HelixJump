@@ -18,10 +18,15 @@ public class JumpingSystem : MonoBehaviour
         RaycastHit hit;
 
         //Debug.DrawLine(gameObject.transform.position, target.position, Color.red);
-        if (Physics.Raycast(gameObject.transform.position, Vector3.right, out hit, 100))
+        if (Physics.Raycast(gameObject.transform.position, Vector3.right, out hit, 200))
         {
             target = hit.collider.transform;
             Debug.DrawLine(gameObject.transform.position, target.position, Color.red);
+        }
+        else if (Physics.Raycast(gameObject.transform.position - new Vector3(0, -2.45f, 0), Vector3.right, out hit, 200))
+        {
+            target = hit.collider.transform;
+            Debug.DrawLine(gameObject.transform.position - new Vector3(0, -2.45f, 0), target.position, Color.green);
         }
     }
 

@@ -4,35 +4,35 @@ using UnityEngine;
 
 public class BallPaintCircle : MonoBehaviour
 {
-    [SerializeField] private string tagName;
+    [SerializeField] private string circleTagName;
     [SerializeField] private Color color;
 
     private void Start()
     {
-        string tagName = gameObject.tag;
         color = gameObject.GetComponent<Renderer>().material.color;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        string circleTagName = gameObject.tag;
+        Debug.Log(circleTagName);
         collision.gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material.color = color;
-        collision.gameObject.tag = "BlueBall";
-        //switch (tagName)
-        //{
-        //    case "BlueCircle":
-        //        collision.gameObject.GetComponent<Renderer>().material.color = color;
-        //        collision.gameObject.tag = "BlueBall";
-        //        break;
-        //    case "RedCircle":
-        //        collision.gameObject.GetComponent<Renderer>().material.color = color;
-        //        collision.gameObject.tag = "RedBall";
-        //        break;
-        //    case "YellowCircle":
-        //        collision.gameObject.GetComponent<Renderer>().material.color = color;
-        //        collision.gameObject.tag = "YellowBall";
-        //        break;
-        //    default:
-        //        break;
-        //}        
+        switch (circleTagName)
+        {
+            case "BlueCircle":
+                collision.gameObject.tag = "BlueBall";
+                Debug.Log("Blue");
+                break;
+            case "RedCircle":
+                collision.gameObject.tag = "RedBall";
+                Debug.Log("Red");
+                break;
+            case "YellowCircle":
+                collision.gameObject.tag = "YellowBall";
+                Debug.Log("Yellow");
+                break;
+            default:
+                break;
+        }
     }
 }

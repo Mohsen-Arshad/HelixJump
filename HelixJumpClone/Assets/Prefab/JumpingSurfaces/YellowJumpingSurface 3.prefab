@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7122830511851641596}
   m_Layer: 0
   m_Name: YellowJumpingSurface 3
-  m_TagString: Untagged
+  m_TagString: YellowJumpSurface
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,7 +99,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  initialAngle: 40
 --- !u!64 &7122830511851641596
 MeshCollider:
   m_ObjectHideFlags: 0

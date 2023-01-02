@@ -11,54 +11,63 @@ public class JumpingSystem : MonoBehaviour
     Transform target;
 
     [SerializeField]
-    public static float initialAngle = 40;
+    public static float initialAngle = 50;
+
+    Vector3 gameObjectPosition;
+
+    private void Start()
+    {
+        gameObjectPosition = gameObject.transform.position;
+    }
 
     private void Update()
     {
         RaycastHit hit;
 
         //Debug.DrawLine(gameObject.transform.position, target.position, Color.red);
-        if (Physics.Raycast(gameObject.transform.position, Vector3.right, out hit, 200))
+        if (Physics.Raycast(gameObject.transform.position, Vector3.right, out hit, 500))
         {
-            target = hit.collider.transform;
-            Debug.DrawLine(gameObject.transform.position, target.position, Color.red);
+            if (hit.collider.gameObject.CompareTag("JumpLocation"))
+            {
+                target = hit.collider.transform;
+                Debug.DrawLine(gameObject.transform.position, target.position, Color.red);
+            }
         }
-        else if (Physics.Raycast(gameObject.transform.position - new Vector3(0, -2.45f, 0), Vector3.right, out hit, 200))
+        else if (Physics.Raycast(gameObject.transform.position + new Vector3(0, -2.3f, 0), Vector3.right, out hit, 100))
         {
-            target = hit.collider.transform;
-            Debug.DrawLine(gameObject.transform.position - new Vector3(0, -2.45f, 0), target.position, Color.green);
+            if (hit.collider.gameObject.CompareTag("JumpLocation"))
+            {
+                target = hit.collider.transform;
+                Debug.DrawLine(gameObject.transform.position + new Vector3(0, -2.3f, 0), target.position, Color.green);
+            }
         }
     }
 
     Vector3 CalculateVelocity()
     {
-        Vector3 nextRingLocation;
-        if (target.gameObject.CompareTag("BlueCircle") || target.gameObject.CompareTag("RedCircle") || target.gameObject.CompareTag("YellowCircle"))
+        if (gameObject.CompareTag("YellowCircle") || gameObject.CompareTag("BlueCircle") || gameObject.CompareTag("RedCircle"))
         {
-            nextRingLocation = target.position + new Vector3(0, -2.4f, 0);
+            gameObjectPosition = gameObject.transform.position + new Vector3(0, -2.4f, 0);
         }
-        else
-        {
-            nextRingLocation = target.position;
-        }
+        Vector3 nextRingLocation = target.position;
 
         float gravity = Physics.gravity.magnitude;
 
         float angle = initialAngle * Mathf.Deg2Rad;
 
         Vector3 planarTarget = new Vector3(nextRingLocation.x, 0, nextRingLocation.z);
-        Vector3 planarPostion = new Vector3(transform.position.x, 0, transform.position.z);
+        Vector3 planarPostion = new Vector3(gameObjectPosition.x, 0, gameObjectPosition.z);
 
 
         float distance = Vector3.Distance(planarTarget, planarPostion);
 
-        float yOffset = transform.position.y - nextRingLocation.y;
+        float yOffset = gameObjectPosition.y - nextRingLocation.y;
 
         float initialVelocity = (1 / Mathf.Cos(angle)) * Mathf.Sqrt((0.5f * gravity * Mathf.Pow(distance, 2)) / (distance * Mathf.Tan(angle) + yOffset));
 
         Vector3 velocity = new Vector3(0, initialVelocity * Mathf.Sin(angle), initialVelocity * Mathf.Cos(angle));
 
-        float angleBetweenObjects = Vector3.Angle(Vector3.up, planarTarget - planarPostion) * (nextRingLocation.x > transform.position.x ? 1 : -1);
+        float angleBetweenObjects = Vector3.Angle(Vector3.up, planarTarget - planarPostion) * (nextRingLocation.x > gameObjectPosition.x ? 1 : -1);
         Vector3 finalVelocity = Quaternion.AngleAxis(angleBetweenObjects, Vector3.up) * velocity;
         return finalVelocity;
     }
@@ -73,15 +82,24 @@ public class JumpingSystem : MonoBehaviour
                 collision.rigidbody.angularVelocity = Vector3.zero;
                 if (gameObject.CompareTag("BlueJumpSurface") && collision.gameObject.CompareTag("BlueBall"))
                 {
-                    initialAngle -= 5;
+                    if (initialAngle >= 30)
+                    {
+                        initialAngle -= 5;
+                    }
                 }
                 else if (gameObject.CompareTag("RedJumpSurface") && collision.gameObject.CompareTag("RedBall"))
                 {
-                    initialAngle -= 5;
+                    if (initialAngle >= 30)
+                    {
+                        initialAngle -= 5;
+                    }
                 }
                 else if (gameObject.CompareTag("YellowJumpSurface") && collision.gameObject.CompareTag("YellowBall"))
                 {
-                    initialAngle -= 5;
+                    if (initialAngle>=30)
+                    {
+                        initialAngle -= 5;
+                    }
                 }
                 else
                 {

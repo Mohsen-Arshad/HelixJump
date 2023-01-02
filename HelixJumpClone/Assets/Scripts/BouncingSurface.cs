@@ -13,6 +13,7 @@ public class BouncingSurface : MonoBehaviour
             collision.rigidbody.velocity = Vector3.zero;
             Vector3 velocityBall = new Vector3(0, bouncingForce, 0);
             collision.rigidbody.velocity = Vector3.ClampMagnitude(velocityBall, bouncingForce);
+            JumpingSystem.initialAngle = 40;
             AnimationHandler.isJumping = true;
         }
     }

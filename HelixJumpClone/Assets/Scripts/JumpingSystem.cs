@@ -11,7 +11,7 @@ public class JumpingSystem : MonoBehaviour
     Transform target;
 
     [SerializeField]
-    public static float initialAngle = 40;
+    public static float initialAngle = 50;
 
     Vector3 gameObjectPosition;
 
@@ -47,7 +47,7 @@ public class JumpingSystem : MonoBehaviour
     {
         if (gameObject.CompareTag("YellowCircle") || gameObject.CompareTag("BlueCircle") || gameObject.CompareTag("RedCircle"))
         {
-            gameObjectPosition = gameObject.transform.position + new Vector3(0, -2.3f, 0);
+            gameObjectPosition = gameObject.transform.position + new Vector3(0, -2.4f, 0);
         }
         Vector3 nextRingLocation = target.position;
 
@@ -82,21 +82,21 @@ public class JumpingSystem : MonoBehaviour
                 collision.rigidbody.angularVelocity = Vector3.zero;
                 if (gameObject.CompareTag("BlueJumpSurface") && collision.gameObject.CompareTag("BlueBall"))
                 {
-                    if (initialAngle >= 25)
+                    if (initialAngle >= 30)
                     {
                         initialAngle -= 5;
                     }
                 }
                 else if (gameObject.CompareTag("RedJumpSurface") && collision.gameObject.CompareTag("RedBall"))
                 {
-                    if (initialAngle >= 25)
+                    if (initialAngle >= 30)
                     {
                         initialAngle -= 5;
                     }
                 }
                 else if (gameObject.CompareTag("YellowJumpSurface") && collision.gameObject.CompareTag("YellowBall"))
                 {
-                    if (initialAngle>=25)
+                    if (initialAngle>=30)
                     {
                         initialAngle -= 5;
                     }

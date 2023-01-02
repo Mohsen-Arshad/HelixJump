@@ -33,9 +33,9 @@ public class JumpingSystem : MonoBehaviour
     Vector3 CalculateVelocity()
     {
         Vector3 nextRingLocation;
-        if (target.gameObject.CompareTag("BlueCircle") || target.gameObject.CompareTag("RedCircle") || transform.gameObject.CompareTag("YellowCircle") || transform.gameObject.CompareTag("BouncingSurface"))
+        if (target.gameObject.CompareTag("BlueCircle") || target.gameObject.CompareTag("RedCircle") || target.gameObject.CompareTag("YellowCircle"))
         {
-            nextRingLocation = target.position + new Vector3(0, -2.3f, 0);
+            nextRingLocation = target.position + new Vector3(0, -2.4f, 0);
         }
         else
         {
@@ -71,15 +71,15 @@ public class JumpingSystem : MonoBehaviour
             {
                 collision.rigidbody.velocity = Vector3.zero;
                 collision.rigidbody.angularVelocity = Vector3.zero;
-                if (gameObject.CompareTag("BlueJumpingSurface") && collision.gameObject.CompareTag("BlueBall"))
+                if (gameObject.CompareTag("BlueJumpSurface") && collision.gameObject.CompareTag("BlueBall"))
                 {
                     initialAngle -= 5;
                 }
-                else if (gameObject.CompareTag("RedJumpingSurface") && collision.gameObject.CompareTag("RedBall"))
+                else if (gameObject.CompareTag("RedJumpSurface") && collision.gameObject.CompareTag("RedBall"))
                 {
                     initialAngle -= 5;
                 }
-                else if (gameObject.CompareTag("YellowJumpingSurface") && collision.gameObject.CompareTag("YellowBall"))
+                else if (gameObject.CompareTag("YellowJumpSurface") && collision.gameObject.CompareTag("YellowBall"))
                 {
                     initialAngle -= 5;
                 }

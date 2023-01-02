@@ -14,9 +14,9 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  m_FogMode: 3
+  m_Fog: 1
+  m_FogColor: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 1}
+  m_FogMode: 2
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.019375052, g: 0.0176552, b: 0.057134964, a: 1}
+  m_IndirectSpecularColor: {r: 0.02184686, g: 0.019846912, b: 0.063091084, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -794,14 +794,14 @@ GameObject:
   - component: {fileID: 273508174}
   - component: {fileID: 273508173}
   - component: {fileID: 273508172}
-  - component: {fileID: 273508171}
+  - component: {fileID: 273508175}
   m_Layer: 0
   m_Name: JumpSurface (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &273508170
 Transform:
   m_ObjectHideFlags: 0
@@ -817,20 +817,6 @@ Transform:
   m_Father: {fileID: 1665251984}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &273508171
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 273508169}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 750da1625a5c85e40a4e9a23e9aca849, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  initialAngle: 50
 --- !u!65 &273508172
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -894,6 +880,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 273508169}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &273508175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273508169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 750da1625a5c85e40a4e9a23e9aca849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!1001 &304260368
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1856,7 +1855,7 @@ GameObject:
   - component: {fileID: 681499627}
   - component: {fileID: 681499626}
   - component: {fileID: 681499625}
-  - component: {fileID: 681499624}
+  - component: {fileID: 681499628}
   m_Layer: 0
   m_Name: JumpSurface (3)
   m_TagString: Untagged
@@ -1879,20 +1878,6 @@ Transform:
   m_Father: {fileID: 1665251984}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &681499624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 681499622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 750da1625a5c85e40a4e9a23e9aca849, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  initialAngle: 50
 --- !u!65 &681499625
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1956,6 +1941,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 681499622}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &681499628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 681499622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 750da1625a5c85e40a4e9a23e9aca849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!1 &686842620
 GameObject:
   m_ObjectHideFlags: 0
@@ -1971,7 +1969,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &686842621
 Transform:
   m_ObjectHideFlags: 0
@@ -2386,7 +2384,7 @@ GameObject:
   - component: {fileID: 854457023}
   - component: {fileID: 854457022}
   - component: {fileID: 854457021}
-  - component: {fileID: 854457020}
+  - component: {fileID: 854457024}
   m_Layer: 0
   m_Name: JumpSurface (1)
   m_TagString: Untagged
@@ -2409,20 +2407,6 @@ Transform:
   m_Father: {fileID: 1665251984}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &854457020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 854457018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 750da1625a5c85e40a4e9a23e9aca849, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  initialAngle: 50
 --- !u!65 &854457021
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2486,6 +2470,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 854457018}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &854457024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854457018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 750da1625a5c85e40a4e9a23e9aca849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!1001 &889092774
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2744,7 +2741,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  initialAngle: 50
 --- !u!65 &958462930
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2875,7 +2871,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 32.9
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -3097,6 +3093,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5695811169606323588, guid: 52b7ca250a6d21e40bd5c82d9e3c5174, type: 3}
   m_PrefabInstance: {fileID: 1012954278}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1050554141 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2946215883945463588, guid: fc070f1bcd7eee340be28cce64f46570, type: 3}
+  m_PrefabInstance: {fileID: 7414810145003742881}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1050554142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050554141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d88cd82f859c144aa6126dcb7166c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpingSpeed: 5
+  jumpingHeight: 2.5
+  target: {fileID: 0}
+  startJumpPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &1072949179
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3943,7 +3960,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  initialAngle: 50
 --- !u!1001 &1461192566
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4120,7 +4136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1665251984
 Transform:
   m_ObjectHideFlags: 0
@@ -4128,7 +4144,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1665251983}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4140,7 +4156,7 @@ Transform:
   - {fileID: 681499623}
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1001 &1667834301
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4654,7 +4670,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  initialAngle: 50
 --- !u!65 &1880667274
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5128,7 +5143,7 @@ GameObject:
   - component: {fileID: 2076602791}
   - component: {fileID: 2076602790}
   - component: {fileID: 2076602789}
-  - component: {fileID: 2076602788}
+  - component: {fileID: 2076602792}
   m_Layer: 0
   m_Name: JumpSurface
   m_TagString: Untagged
@@ -5151,20 +5166,6 @@ Transform:
   m_Father: {fileID: 1665251984}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2076602788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2076602786}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 750da1625a5c85e40a4e9a23e9aca849, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  initialAngle: 50
 --- !u!65 &2076602789
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5228,6 +5229,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2076602786}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2076602792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076602786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 750da1625a5c85e40a4e9a23e9aca849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!1001 &2090495955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5501,6 +5515,14 @@ PrefabInstance:
     - target: {fileID: 2569548847237731742, guid: fc070f1bcd7eee340be28cce64f46570, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6329265489591383356, guid: fc070f1bcd7eee340be28cce64f46570, type: 3}
+      propertyPath: m_Mass
+      value: 0.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6329265489591383356, guid: fc070f1bcd7eee340be28cce64f46570, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.0001
       objectReference: {fileID: 0}
     - target: {fileID: 6863713616213589243, guid: fc070f1bcd7eee340be28cce64f46570, type: 3}
       propertyPath: m_Material

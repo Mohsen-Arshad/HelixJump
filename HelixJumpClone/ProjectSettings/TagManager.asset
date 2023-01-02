@@ -13,6 +13,9 @@ TagManager:
   - BlueCircle
   - RedCircle
   - BouncingSurface
+  - BlueJumpSurface
+  - RedJumpSurface
+  - YellowJumpSurface
   layers:
   - Default
   - TransparentFX

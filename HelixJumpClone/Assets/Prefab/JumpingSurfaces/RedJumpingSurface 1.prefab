@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -160369424975024196}
   m_Layer: 0
   m_Name: RedJumpingSurface 1
-  m_TagString: Untagged
+  m_TagString: RedJumpSurface
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,7 +99,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  initialAngle: 40
 --- !u!64 &-160369424975024196
 MeshCollider:
   m_ObjectHideFlags: 0

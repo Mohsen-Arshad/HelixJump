@@ -20,27 +20,17 @@ public class JumpingSystem : MonoBehaviour
         //Debug.DrawLine(gameObject.transform.position, target.position, Color.red);
         if (Physics.Raycast(gameObject.transform.position, Vector3.right, out hit, 200))
         {
-            target = hit.collider.transform;
-            Debug.DrawLine(gameObject.transform.position, target.position, Color.red);
-        }
-        else if (Physics.Raycast(gameObject.transform.position - new Vector3(0, -2.45f, 0), Vector3.right, out hit, 200))
-        {
-            target = hit.collider.transform;
-            Debug.DrawLine(gameObject.transform.position - new Vector3(0, -2.45f, 0), target.position, Color.green);
+            if (hit.collider.gameObject.CompareTag("JumpLocation"))
+            {
+                target = hit.collider.transform;
+                Debug.DrawLine(gameObject.transform.position, target.position, Color.red);
+            }
         }
     }
 
     Vector3 CalculateVelocity()
     {
-        Vector3 nextRingLocation;
-        if (target.gameObject.CompareTag("BlueCircle") || target.gameObject.CompareTag("RedCircle") || target.gameObject.CompareTag("YellowCircle"))
-        {
-            nextRingLocation = target.position + new Vector3(0, -2.4f, 0);
-        }
-        else
-        {
-            nextRingLocation = target.position;
-        }
+        Vector3 nextRingLocation = target.position;
 
         float gravity = Physics.gravity.magnitude;
 

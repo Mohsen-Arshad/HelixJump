@@ -16,11 +16,12 @@ TagManager:
   - BlueJumpSurface
   - RedJumpSurface
   - YellowJumpSurface
+  - JumpLocation
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Triggers
   - Water
   - UI
   - 

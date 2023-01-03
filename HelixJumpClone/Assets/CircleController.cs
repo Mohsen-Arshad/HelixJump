@@ -12,46 +12,36 @@ public class CircleController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        GameManager.instance.BallLocation += Instance_BallLocation;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDestroy()
     {
-        //RaycastHit hit;
+        GameManager.instance.BallLocation -= Instance_BallLocation;
+    }
 
-        //Debug.DrawLine(gameObject.transform.position, target.position, Color.red);
-        //if (Physics.Raycast(gameObject.transform.position, Vector3.right, out hit, 500))
-        //{
-        //    if (hit.collider.gameObject.CompareTag("JumpLocation"))
-        //    {
-        //        target = hit.collider.transform;
-        //        Debug.DrawLine(gameObject.transform.position, target.position, Color.red);
-        //    }
-        //}
-        //else if (Physics.Raycast(gameObject.transform.position + new Vector3(0, -2.3f, 0), Vector3.right, out hit, 8))
-        //{
-        //    if (hit.collider.gameObject.CompareTag("JumpLocation"))
-        //    {
-        //        target = hit.collider.transform;
-        //        Debug.DrawLine(gameObject.transform.position + new Vector3(0, -2.3f, 0), target.position, Color.green);
-        //    }
-        //}
-
-        //if (gameObject.CompareTag("YellowCircle") || gameObject.CompareTag("BlueCircle") || gameObject.CompareTag("RedCircle"))
-        //{
-        //    gameObjectPosition = gameObject.transform.position + new Vector3(0, -2.35f, 0);
-        //}
-
+    private void Instance_BallLocation(Vector3 obj)
+    {
+        if (Vector3.Distance(transform.position, obj) <= 0.1f)
+        {
+            Debug.Log("Ball is Here");
+            GameManager.instance.BallLanded();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Ball is landed");
         if (other.gameObject.CompareTag("BlueBall") || other.gameObject.CompareTag("YellowBall") || other.gameObject.CompareTag("RedBall"))
         {
-            if (animator!=null)
+            if (animator != null)
             {
                 animator.enabled = true;
+                if (other.transform.position.y <= gameObject.transform.position.y - 0.5f)
+                {
+                    GameManager.instance.BallLanded();
+                    Debug.Log("Ball is landed");
+                }
             }
         }
     }

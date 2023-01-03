@@ -10,13 +10,20 @@ public class JumpingNewSystem : MonoBehaviour
     [SerializeField] private float jumpingHeight = 2f;
     private Vector3 target;
     private Vector3 startJumpPosition;
+    private Vector3 initialTarget;
 
-    bool isJumpToNext = false;
+    bool isLanded = false;
 
     // Start is called before the first frame update
     void Start()
     {
         GameManager.instance.TargetLocation += Instance_TargetLocation;
+        GameManager.instance.BallIsLanding += Instance_BallIsLanding;
+    }
+
+    private void Instance_BallIsLanding()
+    {
+        isLanded = true;
     }
 
     private void OnDestroy()
@@ -26,49 +33,64 @@ public class JumpingNewSystem : MonoBehaviour
 
     private void Instance_TargetLocation(Vector3 nextTarget)
     {
-        target = nextTarget;
+        Debug.Log("Next Target" + nextTarget);
+        initialTarget = nextTarget;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (target != null)
-        {
-            jumpingSpeed += Time.deltaTime * 5;
-            jumpingSpeed = jumpingSpeed % 5f;
+        //time += Time.deltaTime * 0.5f;
+        //if (transform.position.x >= positionMiddle.transform.position.x && transform.position.y <= positionMiddle.transform.position.y)
+        //{
+        //    isLanded = true;
+        //    Debug.Log("Landed");
+        //}
 
-            transform.position = MathParabola.Parabola(startJumpPosition + new Vector3(0, 0.6f, 0), target + new Vector3(0, 0.4f, 0), jumpingHeight, jumpingSpeed / 5);
-            if (transform.position.y - 0.7f <= startJumpPosition.y)
-            {
-                Debug.Log("GroundTouched");
-                AnimationHandler.isJumping = true;
-            }
-            isJumpToNext = true;
-        }
-        else
-        {
-            jumpingSpeed += Time.deltaTime * 5;
-            jumpingSpeed = jumpingSpeed % 5f;
+        //if (!isLanded)
+        //{
+        //    transform.position = CalculateQuadraticBezierPoint(time, positionStart.position, positionEnd.position, positionMiddle.position);
+        //}
 
-            transform.position = MathParabola.Parabola(startJumpPosition + new Vector3(0, 0.6f, 0), startJumpPosition + new Vector3(0, 0.4f, 0), jumpingHeight, jumpingSpeed / 5);
-            if (transform.position.y - 0.7f <= startJumpPosition.y)
-            {
-                Debug.Log("GroundTouched");
-                AnimationHandler.isJumping = true;
-                if (isJumpToNext)
-                {
-                    startJumpPosition = target;
-                }
-            }
-            isJumpToNext = false;
+        ParabolicMove();
+        if (isLanded)
+        {
+            isLanded = false;
+            startJumpPosition = initialTarget;
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void ParabolicMove()
     {
-        if (isJumpToNext)
+        jumpingSpeed += Time.deltaTime;
+        jumpingSpeed = jumpingSpeed % 5f;
+        isLanded = false;
+        transform.position = MathParabola.Parabola(startJumpPosition + new Vector3(0, 0.6f, 0), target + new Vector3(0, 0.4f, 0), jumpingHeight, jumpingSpeed / 5f);
+        if (transform.position.y - 0.6f <= startJumpPosition.y)
         {
-            startJumpPosition = collision.gameObject.transform.position;
+            //Debug.Log("GroundTouched");
+            AnimationHandler.isJumping = true;
+            GameManager.instance.BallIsJumpedToNext();
+            target = initialTarget;
+            isLanded = true;
         }
+
+        GameManager.instance.BallLocationToNext(transform.position);
+    }
+
+
+    private Vector3 CalculateQuadraticBezierPoint(float time, Vector3 positionStart, Vector3 positionEnd, Vector3 positionMiddle)
+    {
+        // return (Bezier(t)) = (1-t)^2 P0 + 2(1-t) t P1 + t^2 P2
+        //                       uu             u          tt
+        // time should pick a number between 0 and 1 ( should be floating point ) 0 < time < 1
+
+        float u = 1 - time;
+        float tt = time * time;
+        float uu = u * u;
+
+        Vector3 bezierReturn = uu * positionStart + 2 * u * time * positionMiddle + tt * positionEnd;
+
+        return bezierReturn;
     }
 }

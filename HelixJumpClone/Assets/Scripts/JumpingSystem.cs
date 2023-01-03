@@ -31,9 +31,9 @@ public class JumpingSystem : MonoBehaviour
             {
                 target = hit.collider.transform;
                 Debug.DrawLine(gameObject.transform.position, target.position, Color.red);
-                Debug.Log(target.position);
                 foundNextTarget = true;
-                SendTheNextLocation(target.position);
+                //Debug.Log("Jumping System Transform That Pass To Event: " + target.position);
+                SendTheNextLocation(target.transform.position - new Vector3(0, 0.3f, 0));
             }
         }
         else if (Physics.Raycast(gameObject.transform.position + new Vector3(0, -2.3f, 0), Vector3.right, out hit, 8))
@@ -42,9 +42,9 @@ public class JumpingSystem : MonoBehaviour
             {
                 target = hit.collider.transform;
                 Debug.DrawLine(gameObject.transform.position + new Vector3(0, -2.3f, 0), target.position, Color.green);
-                Debug.Log(target.position);
                 foundNextTarget = true;
-                SendTheNextLocation(target.position);
+                //Debug.Log("Jumping System Transform That Pass To Event: " + target.position);
+                SendTheNextLocation(target.transform.position - new Vector3(0, 0.3f, 0));
             }
         }
         foundNextTarget = false;

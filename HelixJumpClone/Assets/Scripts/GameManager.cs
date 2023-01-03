@@ -9,8 +9,8 @@ namespace myTask
     {
         public static GameManager instance;
 
-        public event Action GameMainMenu, GameStareted, GameFinished, GameWin, GameLose;
-        public event Action<Vector3> TargetLocation;
+        public event Action GameMainMenu, GameStareted, GameFinished, GameWin, GameLose, BallIsJumpingToNext, BallIsLanding;
+        public event Action<Vector3> TargetLocation, BallLocation;
 
 
         private void Awake()
@@ -28,10 +28,25 @@ namespace myTask
         {
             GameStareted?.Invoke();
         }
-        
+
+        public void BallLanded()
+        {
+            BallIsLanding?.Invoke();
+        }
+
+        public void BallIsJumpedToNext()
+        {
+            BallIsJumpingToNext?.Invoke();
+        }
+
         public void NextTarget(Vector3 target)
         {
             TargetLocation?.Invoke(target);
+        }
+
+        public void BallLocationToNext(Vector3 ballLocation)
+        {
+            BallLocation?.Invoke(ballLocation);
         }
 
         public void FinishTheGame()

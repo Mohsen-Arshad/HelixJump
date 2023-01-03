@@ -1,4 +1,5 @@
 using myTask;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -8,12 +9,12 @@ using UnityEngine.PlayerLoop;
 
 public class JumpingSystem : MonoBehaviour
 {
-    [SerializeField]Transform target;
+    [SerializeField] Transform target;
 
-    [SerializeField]public static float initialAngle = 40;
+    [SerializeField] public static float initialAngle = 40;
 
     Vector3 gameObjectPosition;
-
+    bool foundNextTarget;
     private void Start()
     {
         gameObjectPosition = gameObject.transform.position;
@@ -21,31 +22,46 @@ public class JumpingSystem : MonoBehaviour
 
     private void Update()
     {
-        //RaycastHit hit;
+        RaycastHit hit;
 
         //Debug.DrawLine(gameObject.transform.position, target.position, Color.red);
-        //if (Physics.Raycast(gameObject.transform.position, Vector3.right, out hit, 500))
-        //{
-        //    if (hit.collider.gameObject.CompareTag("JumpLocation"))
-        //    {
-        //        target = hit.collider.transform;
-        //        Debug.DrawLine(gameObject.transform.position, target.position, Color.red);
-        //    }
-        //}
-        //else if (Physics.Raycast(gameObject.transform.position + new Vector3(0, -2.3f, 0), Vector3.right, out hit, 8))
-        //{
-        //    if (hit.collider.gameObject.CompareTag("JumpLocation"))
-        //    {
-        //        target = hit.collider.transform;
-        //        Debug.DrawLine(gameObject.transform.position + new Vector3(0, -2.3f, 0), target.position, Color.green);
-        //    }
-        //}
+        if (Physics.Raycast(gameObject.transform.position, Vector3.right, out hit, 500))
+        {
+            if (hit.collider.gameObject.CompareTag("JumpLocation"))
+            {
+                target = hit.collider.transform;
+                Debug.DrawLine(gameObject.transform.position, target.position, Color.red);
+                Debug.Log(target.position);
+                foundNextTarget = true;
+            }
+        }
+        else if (Physics.Raycast(gameObject.transform.position + new Vector3(0, -2.3f, 0), Vector3.right, out hit, 8))
+        {
+            if (hit.collider.gameObject.CompareTag("JumpLocation"))
+            {
+                target = hit.collider.transform;
+                Debug.DrawLine(gameObject.transform.position + new Vector3(0, -2.3f, 0), target.position, Color.green);
+                Debug.Log(target.position);
+                foundNextTarget = true;
+                SendTheNextLocation(target.position);
+            }
+        }
 
+        foundNextTarget = false;
+        //Debug.Log(target.position);
         //if (gameObject.CompareTag("YellowCircle") || gameObject.CompareTag("BlueCircle") || gameObject.CompareTag("RedCircle"))
         //{
         //    gameObjectPosition = gameObject.transform.position + new Vector3(0, -2.35f, 0);
         //}
         //Vector3 nextRingLocation = target.position;
+    }
+
+    private void SendTheNextLocation(Vector3 nextLocation)
+    {
+        if (foundNextTarget)
+        {
+            GameManager.instance.NextTarget(nextLocation);
+        }
     }
 
     //Vector3 CalculateVelocity()

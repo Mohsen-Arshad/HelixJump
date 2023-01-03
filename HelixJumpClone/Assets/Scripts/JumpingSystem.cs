@@ -79,6 +79,8 @@ public class JumpingSystem : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        AnimationHandler.isJumping = true;
+        Debug.Log("Touched");
         //GameManager.instance.NextTarget(target.position);
 
         //if (collision.gameObject.CompareTag("BlueBall") || collision.gameObject.CompareTag("YellowBall") || collision.gameObject.CompareTag("RedBall"))

@@ -52,6 +52,11 @@ public class JumpingNewSystem : MonoBehaviour
         //}
 
         transform.position = MathParabola.Parabola(startJumpPosition, Vector3.right * 7f, jumpingHeight, jumpingSpeed / 5);
+        if (transform.position.y - 0.6f <= startJumpPosition.y)
+        {
+            Debug.Log("GroundTouched");
+            AnimationHandler.isJumping = true;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)

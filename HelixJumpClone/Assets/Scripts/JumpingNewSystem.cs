@@ -8,8 +8,10 @@ public class JumpingNewSystem : MonoBehaviour
 {
     [SerializeField] private float jumpingSpeed = 6;
     [SerializeField] private float jumpingHeight = 2f;
-    [SerializeField] private Transform target;
-    [SerializeField] private Transform startJumpPosition;
+    private Vector3 target;
+    private Vector3 startJumpPosition;
+
+    bool isJumpToNext = false;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +26,7 @@ public class JumpingNewSystem : MonoBehaviour
 
     private void Instance_TargetLocation(Vector3 nextTarget)
     {
-        target.position = nextTarget;
+        target = nextTarget;
     }
 
     // Update is called once per frame
@@ -35,29 +37,38 @@ public class JumpingNewSystem : MonoBehaviour
             jumpingSpeed += Time.deltaTime * 5;
             jumpingSpeed = jumpingSpeed % 5f;
 
-            transform.position = MathParabola.Parabola(startJumpPosition.position, target.gameObject.transform.position, jumpingHeight, jumpingSpeed / 5);
-            if (transform.position.y - 0.6f <= startJumpPosition.position.y)
+            transform.position = MathParabola.Parabola(startJumpPosition + new Vector3(0, 0.6f, 0), target + new Vector3(0, 0.4f, 0), jumpingHeight, jumpingSpeed / 5);
+            if (transform.position.y - 0.7f <= startJumpPosition.y)
             {
                 Debug.Log("GroundTouched");
                 AnimationHandler.isJumping = true;
             }
+            isJumpToNext = true;
         }
         else
         {
             jumpingSpeed += Time.deltaTime * 5;
             jumpingSpeed = jumpingSpeed % 5f;
 
-            transform.position = MathParabola.Parabola(startJumpPosition.position, startJumpPosition.position, jumpingHeight, jumpingSpeed / 5);
-            if (transform.position.y - 0.6f <= startJumpPosition.position.y)
+            transform.position = MathParabola.Parabola(startJumpPosition + new Vector3(0, 0.6f, 0), startJumpPosition + new Vector3(0, 0.4f, 0), jumpingHeight, jumpingSpeed / 5);
+            if (transform.position.y - 0.7f <= startJumpPosition.y)
             {
                 Debug.Log("GroundTouched");
                 AnimationHandler.isJumping = true;
+                if (isJumpToNext)
+                {
+                    startJumpPosition = target;
+                }
             }
+            isJumpToNext = false;
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        startJumpPosition.position = collision.gameObject.transform.position;
+        if (isJumpToNext)
+        {
+            startJumpPosition = collision.gameObject.transform.position;
+        }
     }
 }

@@ -33,6 +33,7 @@ public class JumpingSystem : MonoBehaviour
                 Debug.DrawLine(gameObject.transform.position, target.position, Color.red);
                 Debug.Log(target.position);
                 foundNextTarget = true;
+                SendTheNextLocation(target.position);
             }
         }
         else if (Physics.Raycast(gameObject.transform.position + new Vector3(0, -2.3f, 0), Vector3.right, out hit, 8))
@@ -46,7 +47,6 @@ public class JumpingSystem : MonoBehaviour
                 SendTheNextLocation(target.position);
             }
         }
-
         foundNextTarget = false;
         //Debug.Log(target.position);
         //if (gameObject.CompareTag("YellowCircle") || gameObject.CompareTag("BlueCircle") || gameObject.CompareTag("RedCircle"))
@@ -58,10 +58,7 @@ public class JumpingSystem : MonoBehaviour
 
     private void SendTheNextLocation(Vector3 nextLocation)
     {
-        if (foundNextTarget)
-        {
-            GameManager.instance.NextTarget(nextLocation);
-        }
+        GameManager.instance.NextTarget(nextLocation);
     }
 
     //Vector3 CalculateVelocity()
@@ -95,8 +92,11 @@ public class JumpingSystem : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        AnimationHandler.isJumping = true;
-        Debug.Log("Touched");
+        if (foundNextTarget)
+        {
+            AnimationHandler.isJumping = true;
+            Debug.Log("Touched");
+        }
         //GameManager.instance.NextTarget(target.position);
 
         //if (collision.gameObject.CompareTag("BlueBall") || collision.gameObject.CompareTag("YellowBall") || collision.gameObject.CompareTag("RedBall"))

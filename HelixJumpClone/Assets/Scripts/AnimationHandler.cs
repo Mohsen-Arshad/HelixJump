@@ -1,3 +1,4 @@
+using myTask;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,12 +6,18 @@ using UnityEngine;
 public class AnimationHandler : MonoBehaviour
 {
     Animator animator;
-    public static bool isJumping;
+    private bool isJumping;
     float waitForSec = 0.3f;
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.instance.BallIsLanding += Instance_BallIsLanding;
         animator = GetComponent<Animator>();
+    }
+
+    private void Instance_BallIsLanding()
+    {
+        isJumping = true;
     }
 
     // Update is called once per frame

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.004530326, g: 0.00512769, b: 0.0197601, a: 1}
+  m_IndirectSpecularColor: {r: 0.023846257, g: 0.021665836, b: 0.068199456, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3329,11 +3329,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d88cd82f859c144aa6126dcb7166c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPosition: {fileID: 0}
-  endPosition: {fileID: 0}
   jumpingHeight: 2.5
-  jumpingSpeed: 5
-  bouncingSpeed: 6.5
+  jumpingSpeed: 1
+  bouncingSpeed: 1
   isLanded: 0
   isMaxHeight: 0
 --- !u!1001 &1072949179
@@ -5980,7 +5978,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2569548847237731742, guid: fc070f1bcd7eee340be28cce64f46570, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.13
       objectReference: {fileID: 0}
     - target: {fileID: 2569548847237731742, guid: fc070f1bcd7eee340be28cce64f46570, type: 3}
       propertyPath: m_LocalPosition.y

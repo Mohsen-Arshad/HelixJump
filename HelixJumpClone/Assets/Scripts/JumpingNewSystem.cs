@@ -9,25 +9,58 @@ public class JumpingNewSystem : MonoBehaviour
     [SerializeField] private Transform endPosition;
     [SerializeField] private float jumpingHeight;
     [SerializeField] private float jumpingSpeed;
+    [SerializeField] private float bouncingSpeed;
     [SerializeField] bool isLanded = false;
+    [SerializeField] bool isMaxHeight = false;
     float flyDuration;
+    bool isFoundNextRing = false;
+    float ballPositionOnYAxis;
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 middlePosition = Vector3.Lerp(startPosition.transform.position, endPosition.transform.position, 0.5f) + new Vector3(0, jumpingHeight * 2, 0);
-
-        flyDuration += Time.deltaTime * jumpingSpeed;
-        if (transform.position.x >= endPosition.position.x && transform.position.y <= endPosition.position.y)
+        if (isFoundNextRing)
         {
-            isLanded = true;
-            Debug.Log("Landed");
+            Vector3 middlePosition = Vector3.Lerp(startPosition.transform.position, endPosition.transform.position, 0.5f) + new Vector3(0, jumpingHeight * 2, 0);
+
+            flyDuration += Time.deltaTime * jumpingSpeed;
+            if (transform.position.x >= endPosition.position.x && transform.position.y <= endPosition.position.y)
+            {
+                isLanded = true;
+                Debug.Log("Landed");
+            }
+
+            if (!isLanded)
+            {
+                transform.position = CalculateQuadraticBezierPoint(flyDuration, startPosition.position, endPosition.position, middlePosition);
+            }
+        }
+        else
+        {
+            if (isLanded && !isMaxHeight)
+            {
+                ballPositionOnYAxis = transform.position.y;
+                ballPositionOnYAxis += bouncingSpeed * Time.deltaTime;
+                if (transform.position.y >= jumpingHeight)
+                {
+                    isLanded = false;
+                    isMaxHeight = true;
+                }
+            }
+            else
+            {
+                ballPositionOnYAxis = transform.position.y;
+                ballPositionOnYAxis -= bouncingSpeed * Time.deltaTime;
+                if (transform.position.y <= 0.7f)
+                {
+                    isLanded = true;
+                    isMaxHeight = false;
+                    GameManager.instance.BallLanded();
+                }
+            }
+            transform.position = new Vector3(transform.position.x, ballPositionOnYAxis, transform.position.z);
         }
 
-        if (!isLanded)
-        {
-            transform.position = CalculateQuadraticBezierPoint(flyDuration, startPosition.position, endPosition.position, middlePosition);
-        }
     }
 
     private Vector3 CalculateQuadraticBezierPoint(float jumpingSpeed, Vector3 positionStart, Vector3 positionEnd, Vector3 positionMiddle)

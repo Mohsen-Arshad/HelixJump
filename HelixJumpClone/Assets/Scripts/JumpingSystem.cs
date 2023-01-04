@@ -94,7 +94,7 @@ public class JumpingSystem : MonoBehaviour
     {
         if (foundNextTarget)
         {
-            AnimationHandler.isJumping = true;
+            //AnimationHandler.isJumping = true;
             Debug.Log("Touched");
         }
         //GameManager.instance.NextTarget(target.position);

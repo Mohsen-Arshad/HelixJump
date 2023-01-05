@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 2431402600955936830}
   - component: {fileID: 4665520155119918415}
   - component: {fileID: 7145093437024560564}
+  - component: {fileID: 1236676827}
   m_Layer: 3
   m_Name: JumpLocation
   m_TagString: JumpLocation
@@ -91,8 +92,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7354619044149450534}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -2.268, z: 0.0051729064}
-  m_LocalScale: {x: 2.6999998, y: 1.8, z: 1}
+  m_LocalPosition: {x: -0.16, y: -2.65, z: 0.01}
+  m_LocalScale: {x: 2.7, y: 2.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5695811169606323588}
@@ -161,6 +162,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1236676827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7354619044149450534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85e683ca12d0a7a469ddcbab649c2563, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 7904209428300629142}
+  target: {fileID: 0}
 --- !u!1 &7389891356370860139
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,11 +673,20 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3207593454604598597, guid: f8677a1b74000144281d5964fbc7db25, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8677a1b74000144281d5964fbc7db25, type: 3}
 --- !u!4 &4184954228919615954 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 426552153736014171, guid: f8677a1b74000144281d5964fbc7db25, type: 3}
+  m_PrefabInstance: {fileID: 4609605047877707913}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &7904209428300629142 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5929551612656626719, guid: f8677a1b74000144281d5964fbc7db25, type: 3}
   m_PrefabInstance: {fileID: 4609605047877707913}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7209757924232588752

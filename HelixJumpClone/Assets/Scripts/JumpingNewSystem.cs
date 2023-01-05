@@ -7,15 +7,15 @@ using UnityEngine;
 
 public class JumpingNewSystem : MonoBehaviour
 {
-    private Vector3 endPosition;
-    private Vector3 startPosition;
+    [SerializeField] private Vector3 endPosition;
+    [SerializeField] private Vector3 startPosition;
     [SerializeField] private float jumpingHeight;
     [SerializeField] private float jumpingSpeed;
     [SerializeField] private float bouncingSpeed;
     [SerializeField] bool isLanded = false;
     [SerializeField] bool isMaxHeight = false;
     float flyDuration;
-    bool isFoundNextRing = false;
+    [SerializeField] bool isFoundNextRing = false;
 
     private void Start()
     {

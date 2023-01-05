@@ -35,8 +35,8 @@ public class JumpingSystem : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Touched");
-        SendTheNextLocation(target.transform.position - new Vector3(0, 0.3f, 0));
+        Debug.Log("Touched - From JumpingSystem");
+        SendTheNextLocation(target.transform.position);
     }
 
     void TargetHandler(RaycastHit hit, Color color)

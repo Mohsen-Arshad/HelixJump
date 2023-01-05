@@ -7,15 +7,16 @@ using UnityEngine;
 
 public class JumpingNewSystem : MonoBehaviour
 {
-    private Vector3 endPosition;
-    private Vector3 startPosition;
+    [SerializeField] private Vector3 endPosition;
+    [SerializeField] private Vector3 startPosition;
+    [SerializeField] private Vector3 middlePosition;
     [SerializeField] private float jumpingHeight;
     [SerializeField] private float jumpingSpeed;
     [SerializeField] private float bouncingSpeed;
+    [SerializeField] private float flyDuration;
     [SerializeField] bool isLanded = false;
     [SerializeField] bool isMaxHeight = false;
-    float flyDuration;
-    bool isFoundNextRing = false;
+    [SerializeField] bool isFoundNextRing = false;
 
     private void Start()
     {
@@ -31,8 +32,8 @@ public class JumpingNewSystem : MonoBehaviour
     {
         Debug.Log("Next Target is : " + obj);
         isFoundNextRing = true;
-        endPosition = obj + new Vector3(0, 0.5f, 0);
-        startPosition = transform.position;
+        endPosition = obj + new Vector3(0, 0.7f, 0);
+        middlePosition = Vector3.Lerp(startPosition, endPosition, 0.5f) + new Vector3(0, jumpingHeight * 2, 0);
     }
 
     // Update is called once per frame
@@ -46,20 +47,18 @@ public class JumpingNewSystem : MonoBehaviour
 
     private void JumpForward()
     {
-        Vector3 middlePosition = Vector3.Lerp(startPosition, endPosition, 0.5f) + new Vector3(0, jumpingHeight * 2, 0);
-
         flyDuration += Time.deltaTime * jumpingSpeed;
+
         if (transform.position.x >= endPosition.x && transform.position.y <= endPosition.y)
         {
             isLanded = true;
             isFoundNextRing = false;
-            Debug.Log("Landed");
+            startPosition = transform.position;
+            flyDuration = 0;
+            Debug.Log("Landed - From Jumping New System" + transform.position);
         }
 
-        if (!isLanded)
-        {
-            transform.position = CalculateQuadraticBezierPoint(flyDuration, startPosition, endPosition, middlePosition);
-        }
+        transform.position = CalculateQuadraticBezierPoint(flyDuration, startPosition, endPosition, middlePosition);
     }
 
     private Vector3 CalculateQuadraticBezierPoint(float jumpingSpeed, Vector3 positionStart, Vector3 positionEnd, Vector3 positionMiddle)
@@ -73,7 +72,6 @@ public class JumpingNewSystem : MonoBehaviour
         float uu = Mathf.Pow(u, 2);
 
         Vector3 bezierReturn = uu * positionStart + 2 * u * jumpingSpeed * positionMiddle + tt * positionEnd;
-
         return bezierReturn;
     }
 

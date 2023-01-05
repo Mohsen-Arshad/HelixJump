@@ -36,12 +36,14 @@ public class JumpingNewSystem : MonoBehaviour
         nextTarget = obj;
         Debug.Log("Next Target is : " + nextTarget);
         isFoundNextRing = true;
+        endPosition = obj + new Vector3(0, 0.5f, 0);
+        startPosition = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isFoundNextRing && isLanded && !isJumping)
+        if (isFoundNextRing)
         {
             JumpForward();
         }
@@ -59,6 +61,7 @@ public class JumpingNewSystem : MonoBehaviour
         if (transform.position.x >= endPosition.x && transform.position.y <= endPosition.y)
         {
             isLanded = true;
+            isFoundNextRing = false;
             Debug.Log("Landed");
         }
 

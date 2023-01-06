@@ -39,9 +39,9 @@ public class JumpingNewSystem : MonoBehaviour
 
     private void Instance_CorrectColor()
     {
-        if (currentJumpingSpeed <= 2)
+        if (currentJumpingSpeed <= 2.5f)
         {
-            currentJumpingSpeed += 0.4f;
+            currentJumpingSpeed += 0.5f;
         }
     }
 

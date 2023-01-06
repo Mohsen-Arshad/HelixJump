@@ -15,15 +15,34 @@ public class JumpingNewSystem : MonoBehaviour
     [SerializeField] private float flyDuration;
     [SerializeField] bool isLanded = false;
     [SerializeField] bool isFoundNextRing = false;
+    float currentJumpingSpeed;
 
     private void Start()
     {
+        currentJumpingSpeed = jumpingSpeed;
         GameManager.instance.TargetLocation += Instance_TargetLocation;
+        GameManager.instance.CorrectColor += Instance_CorrectColor;
+        GameManager.instance.BallIsLanding += Instance_BallIsLanding;
     }
 
     private void OnDestroy()
     {
         GameManager.instance.TargetLocation -= Instance_TargetLocation;
+        GameManager.instance.CorrectColor -= Instance_CorrectColor;
+        GameManager.instance.BallIsLanding -= Instance_BallIsLanding;
+    }
+
+    private void Instance_BallIsLanding()
+    {
+        currentJumpingSpeed = jumpingSpeed;
+    }
+
+    private void Instance_CorrectColor()
+    {
+        if (currentJumpingSpeed <= 3)
+        {
+            currentJumpingSpeed += 0.5f;
+        }
     }
 
     private void Instance_TargetLocation(Vector3 obj)
@@ -47,7 +66,7 @@ public class JumpingNewSystem : MonoBehaviour
 
     private void JumpForward()
     {
-        flyDuration += Time.deltaTime * jumpingSpeed;
+        flyDuration += Time.deltaTime * currentJumpingSpeed;
         transform.position = CalculateQuadraticBezierPoint(flyDuration, startPosition, endPosition, middlePosition);
         if (transform.position.x >= endPosition.x && transform.position.y <= endPosition.y)
         {
@@ -60,17 +79,17 @@ public class JumpingNewSystem : MonoBehaviour
         isLanded = false;
     }
 
-    private Vector3 CalculateQuadraticBezierPoint(float jumpingSpeed, Vector3 positionStart, Vector3 positionEnd, Vector3 positionMiddle)
+    private Vector3 CalculateQuadraticBezierPoint(float jumpSpeed, Vector3 positionStart, Vector3 positionEnd, Vector3 positionMiddle)
     {
         // return (Bezier(t)) = (1-t)^2 P0 + 2(1-t) t P1 + t^2 P2
         //                       uu             u          tt
         // time should be a float number between 0 and 1 --------> 0 < time < 1
 
-        float u = 1 - jumpingSpeed;
-        float tt = Mathf.Pow(jumpingSpeed, 2);
+        float u = 1 - jumpSpeed;
+        float tt = Mathf.Pow(jumpSpeed, 2);
         float uu = Mathf.Pow(u, 2);
 
-        Vector3 bezierReturn = uu * positionStart + 2 * u * jumpingSpeed * positionMiddle + tt * positionEnd;
+        Vector3 bezierReturn = uu * positionStart + 2 * u * jumpSpeed * positionMiddle + tt * positionEnd;
         return bezierReturn;
     }
 

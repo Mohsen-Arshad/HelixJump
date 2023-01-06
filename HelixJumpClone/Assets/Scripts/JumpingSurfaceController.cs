@@ -36,11 +36,37 @@ public class JumpingSurfaceController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (gameObject.CompareTag("RedJumpSurface") && collision.gameObject.CompareTag("RedBall")) 
+        {
+            Debug.Log("Same Color");
+            GiveBonus();
+        }
+        else if (gameObject.CompareTag("BlueJumpSurface") && collision.gameObject.CompareTag("BlueBall"))
+        {
+            Debug.Log("Same Color");
+            GiveBonus();
+        }
+        else if (gameObject.CompareTag("YellowJumpSurface") && collision.gameObject.CompareTag("YellowBall"))
+        {
+            Debug.Log("Same Color");
+            GiveBonus();
+        }
+        else
+        {
+            GameManager.instance.LoseTheGame();
+            return;
+        }
+
         if (target != null)
         {
-            Debug.Log("Touched - From JumpingSystem");
+            Debug.Log("Touched - From JumpingSurfaceCotroller");
             SendTheNextLocation(target.transform.position);
         }
+    }
+
+    private void GiveBonus()
+    {
+        GameManager.instance.SpeedUpAndBonus();
     }
 
     void TargetHandler(RaycastHit hit, Color color)

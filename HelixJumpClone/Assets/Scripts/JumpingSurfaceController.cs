@@ -74,7 +74,7 @@ public class JumpingSurfaceController : MonoBehaviour
         if (hit.collider.gameObject.CompareTag("JumpLocation"))
         {
             target = hit.collider.transform;
-            Debug.DrawLine(gameObject.transform.position + new Vector3(0, -2.3f, 0), target.position, color);
+            Debug.DrawLine(gameObject.transform.position, target.position, color);
         }
     }
 }

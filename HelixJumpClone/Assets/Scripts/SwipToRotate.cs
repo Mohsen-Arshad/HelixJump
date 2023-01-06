@@ -1,3 +1,4 @@
+using myTask;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,18 @@ public class SwipToRotate : MonoBehaviour
 
     private void Start()
     {
+        GameManager.instance.GameLose += Instance_GameLose;
         sceneWidth = Screen.width;
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.instance.GameLose -= Instance_GameLose;
+    }
+
+    private void Instance_GameLose()
+    {
+        gameObject.GetComponent<SwipToRotate>().enabled = false;
     }
 
     private void Update()

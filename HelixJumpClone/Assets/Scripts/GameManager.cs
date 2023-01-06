@@ -9,7 +9,7 @@ namespace myTask
     {
         public static GameManager instance;
 
-        public event Action GameMainMenu, GameStareted, GameFinished, GameWin, GameLose, BallIsJumpingToNext, BallIsLanding;
+        public event Action GameMainMenu, GameStareted, GameFinished, GameWin, GameLose, BallIsJumpingToNext, BallIsLanding, CorrectColor;
         public event Action<Vector3> TargetLocation, BallLocation;
 
 
@@ -32,6 +32,11 @@ namespace myTask
         public void BallLanded()
         {
             BallIsLanding?.Invoke();
+        }
+
+        public void SpeedUpAndBonus()
+        {
+            CorrectColor?.Invoke();
         }
 
         public void BallIsJumpedToNext()

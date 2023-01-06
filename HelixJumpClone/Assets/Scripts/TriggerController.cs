@@ -7,6 +7,7 @@ public class TriggerController : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     [SerializeField] Transform target;
+    [SerializeField] private GameObject bouncingSurfaces;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +32,7 @@ public class TriggerController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         animator.enabled = true;
+        bouncingSurfaces.SetActive(true);
         if (other.gameObject.CompareTag("BlueBall") || other.gameObject.CompareTag("YellowBall") || other.gameObject.CompareTag("RedBall"))
         {
             if (animator!=null)

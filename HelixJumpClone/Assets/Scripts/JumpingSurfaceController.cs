@@ -7,13 +7,11 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
-public class JumpingSystem : MonoBehaviour
+public class JumpingSurfaceController : MonoBehaviour
 {
     [SerializeField] Transform target;
 
     [SerializeField] public static float initialAngle = 40;
-
-    bool foundNextTarget;
 
     private void Update()
     {
@@ -30,13 +28,19 @@ public class JumpingSystem : MonoBehaviour
 
     private void SendTheNextLocation(Vector3 nextLocation)
     {
-        GameManager.instance.NextTarget(nextLocation);
+        if (target != null)
+        {
+            GameManager.instance.NextTarget(nextLocation);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Touched - From JumpingSystem");
-        SendTheNextLocation(target.transform.position);
+        if (target!=null) 
+        {
+            Debug.Log("Touched - From JumpingSystem");
+            SendTheNextLocation(target.transform.position);
+        }
     }
 
     void TargetHandler(RaycastHit hit, Color color)

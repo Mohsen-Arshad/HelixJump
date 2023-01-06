@@ -14,7 +14,6 @@ public class JumpingNewSystem : MonoBehaviour
     [SerializeField] private float jumpingSpeed;
     [SerializeField] private float flyDuration;
     [SerializeField] bool isLanded = false;
-    [SerializeField] bool isMaxHeight = false;
     [SerializeField] bool isFoundNextRing = false;
 
     private void Start()

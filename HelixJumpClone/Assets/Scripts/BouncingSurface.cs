@@ -1,11 +1,31 @@
 using myTask;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using UnityEngine;
 
 public class BouncingSurface : MonoBehaviour
 {
     [SerializeField] private float bouncingForce = 1;
+    bool isSeperated = false;
+    private void Start()
+    {
+        GameManager.instance.TargetLocation += Instance_TargetLocation;
+    }
+
+    private void Instance_TargetLocation(Vector3 obj)
+    {
+        isSeperated = true;
+    }
+
+    private void Update()
+    {
+        if (isSeperated)
+        {
+            gameObject.GetComponent<Renderer>().enabled = true;
+            gameObject.transform.localPosition += new Vector3(transform.localPosition.x, transform.localPosition.y, 0.002f);
+        }
+    }
 
     private void OnCollisionEnter(Collision collision)
     {

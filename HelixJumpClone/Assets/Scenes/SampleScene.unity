@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.02427299, g: 0.02209904, b: 0.0691864, a: 1}
+  m_IndirectSpecularColor: {r: 0.024266765, g: 0.022093982, b: 0.06917024, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -478,6 +478,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2569548847237731742, guid: fc070f1bcd7eee340be28cce64f46570, type: 3}
   m_PrefabInstance: {fileID: 7414810145003742881}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &817844720 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 122110416405464166, guid: cf73fd65c7fc3af49ac940846ee073a1, type: 3}
+  m_PrefabInstance: {fileID: 2106028064185222083}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,6 +658,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 484320192}
     m_Modifications:
+    - target: {fileID: 1236676827, guid: 52b7ca250a6d21e40bd5c82d9e3c5174, type: 3}
+      propertyPath: bouncingSurfaces
+      value: 
+      objectReference: {fileID: 1316625208}
+    - target: {fileID: 1146464305584032042, guid: 52b7ca250a6d21e40bd5c82d9e3c5174, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1403770816843879884, guid: 52b7ca250a6d21e40bd5c82d9e3c5174, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -791,6 +804,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1167551805}
   m_CullTransparentMesh: 1
+--- !u!1 &1316625208 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1146464305584032042, guid: 52b7ca250a6d21e40bd5c82d9e3c5174, type: 3}
+  m_PrefabInstance: {fileID: 1141004743}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1613783902
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,6 +873,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 36233049}
+    - target: {fileID: 5037965162304729074, guid: 0ce9e4548fbc4ed4c87426211dbe2532, type: 3}
+      propertyPath: bouncingSurfaces
+      value: 
+      objectReference: {fileID: 1831823492}
     - target: {fileID: 5695811169606323588, guid: 0ce9e4548fbc4ed4c87426211dbe2532, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -898,6 +920,14 @@ PrefabInstance:
     - target: {fileID: 5695811169606323588, guid: 0ce9e4548fbc4ed4c87426211dbe2532, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5902385579386493206, guid: 0ce9e4548fbc4ed4c87426211dbe2532, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354619044149450534, guid: 0ce9e4548fbc4ed4c87426211dbe2532, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7641064021882774422, guid: 0ce9e4548fbc4ed4c87426211dbe2532, type: 3}
       propertyPath: m_Name
@@ -1006,6 +1036,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1731136381}
   m_CullTransparentMesh: 1
+--- !u!1 &1831823492 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5902385579386493206, guid: 0ce9e4548fbc4ed4c87426211dbe2532, type: 3}
+  m_PrefabInstance: {fileID: 1724042275}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2136730411
 GameObject:
   m_ObjectHideFlags: 0
@@ -1147,6 +1182,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 484320192}
     m_Modifications:
+    - target: {fileID: 122110416405464166, guid: cf73fd65c7fc3af49ac940846ee073a1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2106028065009003625, guid: cf73fd65c7fc3af49ac940846ee073a1, type: 3}
+      propertyPath: bouncingSurfaces
+      value: 
+      objectReference: {fileID: 817844720}
     - target: {fileID: 5695811169606323588, guid: cf73fd65c7fc3af49ac940846ee073a1, type: 3}
       propertyPath: m_RootOrder
       value: 2

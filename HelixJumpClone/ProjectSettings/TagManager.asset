@@ -17,6 +17,7 @@ TagManager:
   - RedJumpSurface
   - YellowJumpSurface
   - JumpLocation
+  - FinishLine
   layers:
   - Default
   - TransparentFX

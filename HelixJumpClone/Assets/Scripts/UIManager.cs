@@ -10,12 +10,19 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject multiplierText;
     [SerializeField] private GameObject gameOverBackground;
+    [SerializeField] private GameObject gameEnded;
     float textTimer = 0;
 
     void Start()
     {
         GameManager.instance.CorrectColor += Instance_CorrectColor;
-        GameManager.instance.GameLose += Instance_GameLose; ;
+        GameManager.instance.GameLose += Instance_GameLose;
+        GameManager.instance.GameFinished += Instance_GameFinished;
+    }
+
+    private void Instance_GameFinished()
+    {
+        gameEnded.SetActive(true);
     }
 
     private void Instance_GameLose()

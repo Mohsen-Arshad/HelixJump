@@ -51,6 +51,11 @@ public class JumpingSurfaceController : MonoBehaviour
             Debug.Log("Same Color");
             GiveBonus();
         }
+        else if (gameObject.CompareTag("RedCircle")|| gameObject.CompareTag("BlueCircle")|| gameObject.CompareTag("YellowCircle"))
+        {
+            Debug.Log("Same Color");
+            GiveBonus();
+        }
         else
         {
             GameManager.instance.LoseTheGame();

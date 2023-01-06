@@ -6,10 +6,10 @@ using UnityEngine;
 public class RingController : MonoBehaviour
 {
     [SerializeField] private Animator animator;
+    [SerializeField] private GameObject animatedRing;
     [SerializeField] Transform target;
     [SerializeField] private GameObject bouncingSurfaces;
     [SerializeField] private GameObject completeCircle;
-    [SerializeField] private GameObject animatedRing;
     bool destroyRing = false;
     bool isRingActive = false;
     float disableTimer = 0;
@@ -25,7 +25,10 @@ public class RingController : MonoBehaviour
     {
         if (isRingActive)
         {
-            animatedRing.SetActive(false);
+            if (animatedRing != null)
+            {
+                animatedRing.SetActive(false);
+            }
             destroyRing = true;
         }
     }

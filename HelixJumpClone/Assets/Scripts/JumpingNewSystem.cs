@@ -12,7 +12,6 @@ public class JumpingNewSystem : MonoBehaviour
     [SerializeField] private Vector3 middlePosition;
     [SerializeField] private float jumpingHeight;
     [SerializeField] private float jumpingSpeed;
-    [SerializeField] private float bouncingSpeed;
     [SerializeField] private float flyDuration;
     [SerializeField] bool isLanded = false;
     [SerializeField] bool isMaxHeight = false;
@@ -32,14 +31,16 @@ public class JumpingNewSystem : MonoBehaviour
     {
         Debug.Log("Next Target is : " + obj);
         isFoundNextRing = true;
-        endPosition = obj + new Vector3(0, 0.7f, 0);
+        startPosition = transform.position;
+        endPosition = obj;
         middlePosition = Vector3.Lerp(startPosition, endPosition, 0.5f) + new Vector3(0, jumpingHeight * 2, 0);
+        flyDuration = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isFoundNextRing)
+        if (isFoundNextRing && !isLanded)
         {
             JumpForward();
         }
@@ -48,7 +49,7 @@ public class JumpingNewSystem : MonoBehaviour
     private void JumpForward()
     {
         flyDuration += Time.deltaTime * jumpingSpeed;
-
+        transform.position = CalculateQuadraticBezierPoint(flyDuration, startPosition, endPosition, middlePosition);
         if (transform.position.x >= endPosition.x && transform.position.y <= endPosition.y)
         {
             isLanded = true;
@@ -57,8 +58,7 @@ public class JumpingNewSystem : MonoBehaviour
             flyDuration = 0;
             Debug.Log("Landed - From Jumping New System" + transform.position);
         }
-
-        transform.position = CalculateQuadraticBezierPoint(flyDuration, startPosition, endPosition, middlePosition);
+        isLanded = false;
     }
 
     private Vector3 CalculateQuadraticBezierPoint(float jumpingSpeed, Vector3 positionStart, Vector3 positionEnd, Vector3 positionMiddle)

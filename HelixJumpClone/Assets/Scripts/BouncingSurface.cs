@@ -23,7 +23,7 @@ public class BouncingSurface : MonoBehaviour
         if (isSeperated)
         {
             gameObject.GetComponent<Renderer>().enabled = true;
-            gameObject.transform.localPosition += new Vector3(transform.localPosition.x, transform.localPosition.y, 0.002f);
+            gameObject.transform.localPosition += new Vector3(transform.localPosition.x, transform.localPosition.y, 0.005f);
         }
     }
 

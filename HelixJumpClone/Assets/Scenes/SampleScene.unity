@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.024266765, g: 0.022093982, b: 0.06917024, a: 1}
+  m_IndirectSpecularColor: {r: 0.023957994, g: 0.021764636, b: 0.06845793, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!95 &36233049 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 7904209428300629142, guid: 0ce9e4548fbc4ed4c87426211dbe2532, type: 3}
-  m_PrefabInstance: {fileID: 1724042275}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &88548885
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,7 +557,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -5.38, y: 2.97, z: 0}
+  m_LocalPosition: {x: -7.34, y: 3.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -869,14 +864,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 484320192}
     m_Modifications:
-    - target: {fileID: 5037965162304729074, guid: 0ce9e4548fbc4ed4c87426211dbe2532, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 36233049}
-    - target: {fileID: 5037965162304729074, guid: 0ce9e4548fbc4ed4c87426211dbe2532, type: 3}
-      propertyPath: bouncingSurfaces
-      value: 
-      objectReference: {fileID: 1831823492}
     - target: {fileID: 5695811169606323588, guid: 0ce9e4548fbc4ed4c87426211dbe2532, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -920,14 +907,6 @@ PrefabInstance:
     - target: {fileID: 5695811169606323588, guid: 0ce9e4548fbc4ed4c87426211dbe2532, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5902385579386493206, guid: 0ce9e4548fbc4ed4c87426211dbe2532, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7354619044149450534, guid: 0ce9e4548fbc4ed4c87426211dbe2532, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7641064021882774422, guid: 0ce9e4548fbc4ed4c87426211dbe2532, type: 3}
       propertyPath: m_Name
@@ -1036,11 +1015,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1731136381}
   m_CullTransparentMesh: 1
---- !u!1 &1831823492 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5902385579386493206, guid: 0ce9e4548fbc4ed4c87426211dbe2532, type: 3}
-  m_PrefabInstance: {fileID: 1724042275}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2136730411
 GameObject:
   m_ObjectHideFlags: 0

@@ -177,6 +177,8 @@ MonoBehaviour:
   animator: {fileID: 7904209428300629142}
   target: {fileID: 0}
   bouncingSurfaces: {fileID: 5902385579386493206}
+  completeCircle: {fileID: 7641064021882774422}
+  animatedRing: {fileID: 3555628319929375592}
 --- !u!1 &7389891356370860139
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,6 +411,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8677a1b74000144281d5964fbc7db25, type: 3}
+--- !u!1 &3555628319929375592 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1054047097301283809, guid: f8677a1b74000144281d5964fbc7db25, type: 3}
+  m_PrefabInstance: {fileID: 4609605047877707913}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4184954228919615954 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 426552153736014171, guid: f8677a1b74000144281d5964fbc7db25, type: 3}

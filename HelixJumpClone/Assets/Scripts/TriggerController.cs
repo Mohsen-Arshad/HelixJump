@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CircleController : MonoBehaviour
+public class TriggerController : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     [SerializeField] Transform target;
@@ -31,16 +31,15 @@ public class CircleController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Ball is landed");
+        animator.enabled = true;
         if (other.gameObject.CompareTag("BlueBall") || other.gameObject.CompareTag("YellowBall") || other.gameObject.CompareTag("RedBall"))
         {
-            if (animator != null)
+            if (animator!=null)
             {
-                animator.enabled = true;
                 if (other.transform.position.y <= gameObject.transform.position.y - 0.5f)
                 {
                     GameManager.instance.BallLanded();
-                    Debug.Log("Ball is landed");
+                    Debug.Log("Ball is here");
                 }
             }
         }

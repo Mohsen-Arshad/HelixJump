@@ -36,7 +36,7 @@ public class JumpingSurfaceController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (target!=null) 
+        if (target != null)
         {
             Debug.Log("Touched - From JumpingSystem");
             SendTheNextLocation(target.transform.position);

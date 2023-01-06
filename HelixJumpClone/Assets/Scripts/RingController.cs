@@ -3,16 +3,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TriggerController : MonoBehaviour
+public class RingController : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     [SerializeField] Transform target;
     [SerializeField] private GameObject bouncingSurfaces;
+    [SerializeField] private GameObject completeCircle;
+    [SerializeField] private GameObject animatedRing;
+    bool destroyRing = false;
+    bool isRingActive = false;
+    float disableTimer = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         GameManager.instance.BallLocation += Instance_BallLocation;
+        GameManager.instance.TargetLocation += Instance_TargetLocation;
+    }
+
+    private void Instance_TargetLocation(Vector3 obj)
+    {
+        if (isRingActive)
+        {
+            animatedRing.SetActive(false);
+            destroyRing = true;
+        }
     }
 
     private void OnDestroy()
@@ -29,13 +44,26 @@ public class TriggerController : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (destroyRing)
+        {
+            disableTimer += Time.deltaTime;
+            if (disableTimer >= 1f)
+            {
+                completeCircle.SetActive(false);
+            }
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         animator.enabled = true;
         bouncingSurfaces.SetActive(true);
+        isRingActive = true;
         if (other.gameObject.CompareTag("BlueBall") || other.gameObject.CompareTag("YellowBall") || other.gameObject.CompareTag("RedBall"))
         {
-            if (animator!=null)
+            if (animator != null)
             {
                 if (other.transform.position.y <= gameObject.transform.position.y - 0.5f)
                 {

@@ -13,7 +13,7 @@ public class JumpingSurfaceController : MonoBehaviour
 
     [SerializeField] public static float initialAngle = 40;
 
-    private void Update()
+    private void FixedUpdate()
     {
         RaycastHit hit;
         if (Physics.Raycast(gameObject.transform.position, Vector3.right, out hit, 500))

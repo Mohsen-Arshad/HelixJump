@@ -18,7 +18,7 @@ public class BouncingSurface : MonoBehaviour
         isSeperated = true;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (isSeperated)
         {
